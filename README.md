@@ -42,5 +42,3 @@ Runs entirely in the browser.
 No AI models, no black boxes — fully explainable logic.
 
 
-## 📁 Project Structure
-
