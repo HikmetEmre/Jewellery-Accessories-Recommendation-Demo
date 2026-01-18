@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wrist Tone → Jewelry Recommendations (Demo)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>Wrist/Hand Skin Tone → Jewelry & Watch & Accesories Recommendations</h1>
+      <p class="sub">
+        Prototype: Select a small skin patch on the wrist/hand. This is lighting-sensitive guidance, not a medical classifier.
+      </p>
+    </header>
+
+    <section class="panel">
+      <div class="controls">
+        <label class="file">
+          <input id="fileInput" type="file" accept="image/*" />
+          <span>Upload photo</span>
+        </label>
+      
+        <button id="cameraBtn" type="button">Use camera</button>
+        <button id="captureBtn" type="button" class="secondary" disabled>Capture frame</button>
+        <button id="stopBtn" type="button" class="secondary" disabled>Stop camera</button>
+      
+        <button id="fitBtn" type="button" class="secondary">Fit</button>
+        <button id="clearBtn" type="button" class="secondary">Clear</button>
+      </div>
+      
+
+      <div class="sliderRow">
+        <label for="boldness"><b>Style</b> (Subtle → Bold)</label>
+        <input id="boldness" type="range" min="0" max="100" value="60" />
+        <span id="boldVal" class="mono">60</span>
+      </div>
+
+
+      <div class="hint">
+        Drag on the image to select a <b>small, evenly-lit skin patch</b> (avoid jewelry, shadows, highlights, background).
+      </div>
+
+      <div class="stage">
+        <canvas id="canvas"></canvas>
+      </div>
+
+      <div class="results">
+        <div class="card">
+          <h2>Detected (heuristic)</h2>
+          <div class="grid">
+            <div><span class="k">Depth</span><span id="depth" class="v">—</span></div>
+            <div><span class="k">Undertone bias</span><span id="undertone" class="v">—</span></div>
+            <div><span class="k">ROI color</span>
+              <span id="swatch" class="swatch" title="Median ROI color"></span>
+              <span id="rgb" class="v mono">—</span>
+              <span id="lab" class="v mono">—</span>
+            </div>
+          </div>
+          <div><span class="k">ROI quality</span><span id="quality" class="v">—</span></div>
+          <div id="warnings" class="warnings"></div>
+        </div>
+
+        <div class="card">
+          <h2>Recommendations</h2>
+          <div class="grid">
+            <div><span class="k">Metals</span><span id="metals" class="v">—</span></div>
+            <div><span class="k">Stone colors</span><span id="stones" class="v">—</span></div>
+            <div><span class="k">Contrast</span><span id="contrast" class="v">—</span></div>
+            <div class="products" id="products"></div>
+          </div>
+          <div class="note">
+            Tip: Adjust the slider to fine-tune contrast intensity.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p class="foot">
+        Built for demo purposes. For production: color calibration, better skin segmentation, and feedback-driven ranking.
+      </p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
