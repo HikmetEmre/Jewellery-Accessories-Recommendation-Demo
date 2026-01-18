@@ -504,6 +504,8 @@ function renderProducts(result) {
   clearBtn.addEventListener("click", () => {
     sel = null;
     updateUIEmpty();
+    imgLoaded = false;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     productsEl.innerHTML = "";
     draw();
   });
@@ -565,4 +567,5 @@ function renderProducts(result) {
 
   updateUIEmpty();
 })();
+
 
