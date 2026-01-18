@@ -1,4 +1,7 @@
 # Jewellery-Accessories-Recommendation-Demo
+
+![Wrist Tone Jewelry Recommendation Demo](assets/demo/preview.png)
+
 Client-side demo that analyses wrist/hand skin tone from an image or webcam and suggests jewellery and accessories using explainable colour heuristics.
 
 # Wrist / Hand Skin Tone → Jewelry & Accessories Recommendation (Demo)
